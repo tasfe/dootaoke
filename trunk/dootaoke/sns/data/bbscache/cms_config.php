@@ -1,3 +1,0 @@
-<?php
-$cms_sitename='';
-?>
