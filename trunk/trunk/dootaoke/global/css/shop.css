@@ -1,0 +1,7 @@
+.brands{clear:both;}
+.brands ul li{float:left;margin:5px;border:1px solid #ccc;margin-right:8px;height:80px;}
+.brands .pic{width:80px;height:50px;text-align:center;}
+.brands .pic a{width:80px;height:50px;*font-size:40px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-family:Arial;*line-height:1;}
+.brands .name{text-align:center;overflow:hidden;}
+
+.shops{margin:2px 5px;line-height:20px;}

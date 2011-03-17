@@ -1,0 +1,32 @@
+<!--<?php
+print <<<EOT
+-->
+<div class="hd">
+	<div class="view-hover" invokename="群组标题@群组聚合页面" altname="群组标题@群组聚合页面" channelid="groupgatherleft"><h3>推荐群组</h3>
+	
+</div>
+</div>
+<div class="bd">
+	<div class="groups cc">
+		<div class="view-hover" invokename="群组列表@群组聚合页面" altname="群组列表@群组聚合页面" channelid="groupgatherleft">
+EOT;
+$pwresult = pwTplGetData('群组列表@群组聚合页面','群组列表');
+print <<<EOT
+<div class="bd"><div class="groups cc">
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+		<a href="$val[url]" target="_blank"><img class="fl" src="$val[image]" width="64" height="64" /></a>
+		<h4><a href="$val[url]" target="_blank">$val[title]</a></h4>
+		<p>$val[descrip]</p>
+	</li>
+EOT;
+}print <<<EOT
+</ul>
+</div></div></div>
+	</div>
+</div>
+<!--
+EOT;
+?>-->

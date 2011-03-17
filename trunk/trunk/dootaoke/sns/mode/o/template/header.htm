@@ -1,0 +1,279 @@
+<!--<?php
+$webPageTitle = '广场';
+$webPageTitle .= ' - '.getSiteName('o');
+print<<<EOT
+--><!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=$db_charset" />
+<title>$webPageTitle - Powered by phpwind</title>
+<meta name="generator" content="phpwind $wind_version" />
+<meta name="description" content="$metaDescription" />
+<meta name="keywords" content="$metaKeywords" />
+<base id="headbase" href="$db_bbsurl/" />
+<link rel="stylesheet" type="text/css" href="images/pw_core.css" media="all" />
+<link rel="stylesheet" type="text/css" href="u/images/style.css" media="all" />
+<link rel="stylesheet" type="text/css" href="u/images/visit/style.css" media="all" />
+<!--
+EOT;
+$uskin = 'default';
+require_once(uTemplate::printEot('css'));
+print <<<EOT
+-->
+<script type="text/javascript" language="JavaScript" src="js/pw_ajax.js"></script>
+<script type="text/javascript" LANGUAGE="JavaScript" src="js/core/core.js"></script>
+<script type="text/javascript" LANGUAGE="JavaScript" src="js/core/tab.js"></script>
+<script language="JavaScript">
+var imgpath = '$imgpath';
+var verifyhash = '$verifyhash';
+var winduid = '$winduid';
+var windid	= '$windid';
+var groupid	= '$groupid';
+var charset = '$db_charset';
+var basename = '$basename';
+var temp_basename = '$temp_basename';
+var modeimg = '$pwModeImg';
+</script>
+</head>
+<body>
+<div class="warp">
+	<div class="header">
+	<div class="topbar">
+		<div class="topwarp cc">
+			<a href="index.php" class="logo"><img src="u/themes/$uskin/images/logo.png" width="116" height="31" title="$o_sitename" /></a>
+			<div class="fl mr10">
+				
+<!--
+EOT;
+$navConfigService = L::loadClass('navconfig', 'site');
+$homenavigation = $navConfigService->userHomeNavigation(PW_NAV_TYPE_MAIN, 'o');
+if ($homenavigation['linkup']) {
+	foreach($homenavigation['linkup'] as $key => $value) {
+	$currentClass = $value['data']['iscurrent'] ? 'class="current"' : '';
+	$html = buildNavLinkHtml($value['data']);
+	$crossEvent = (!$value['data']['iscurrent'] && 'cross' == $value['data']['floattype'] && $value['subs']) ? " onmouseover=\"ctrlSubMenu('nav_key_up_$key', 'nav_key_sub_$key');\" " : '';
+
+	$verticalEvent = (!$value['data']['iscurrent'] && 'vertical' == $value['data']['floattype'] && $value['subs']) ? " onmouseover=\"tmpHideAllCross('nav_key_sub_$key'); read.open('nav_key_sub_$key', 'nav_key_up_$key', null, 0, window['nav_key_up_$key']); \" " : '';
+
+	$currentEvent = $value['data']['iscurrent'] ? " onmouseover=\"tmpHideAllCross('nav_key_sub_$key'); \" " : '';
+print <<<EOT
+-->
+				<span $currentClass $crossEvent $verticalEvent $currentEvent>$html</span>
+<!--
+EOT;
+} if ($o_browseopen) {print <<<EOT
+-->
+				<a href="mode.php?m=o">广场</a>
+<!--
+EOT;
+} $db_menuinit .= ",'td_omainNav' : 'menu_omainNav'";
+ if (count($homenavigation['linkdown'])) {
+print <<<EOT
+-->
+				<a id="td_omainNav" class="link_down"><span id="td_omainNav" class="link_down">更多</span></a>
+<!--
+EOT;
+}
+}print <<<EOT
+-->
+<!--
+EOT;
+print <<<EOT
+-->
+			</div>
+			<div class="search">
+			<form id="searchForm" action="searcher.php" method="post" target="_blank">
+				<input type="hidden" name="verify" value="$verifyhash">
+				<input type="hidden" name="step" value="2">
+				<input id="searchType" type="hidden" name="type" value="thread">
+				<span id="submitSearch" class="adown fl cp">搜索</span>
+				<div id="searchTypeSelect" class="fl" style="display:none;">
+					<ul>
+<!--
+EOT;
+if ($db_search_type) {
+	foreach ($db_search_type as $key=>$value) {
+		$currentType = $key == 'thread' ? 'class="current"' : '';
+print <<<EOT
+-->	
+				<li id="searchType_{$key}" $currentType>{$value}</li>
+<!--
+EOT;
+	}
+} else {
+print <<<EOT
+-->
+				<li id="searchType_thread" class="current">帖子</li>
+				<li id="searchType_diary">日志</li>
+				<li id="searchType_user">用户</li>
+				<li id="searchType_forum">版块</li>
+				<li id="searchType_group">群组</li>
+<!--
+EOT;
+}print <<<EOT
+-->
+					</ul>
+				</div>
+				<input id="searchKeyword" class="sip" name="keyword" type="text">
+				<button type="submit">搜索</button>
+			</form>
+			</div>
+<script>
+
+if(is_webkit && getObj('bookmarkExplore')){
+	getObj('bookmarkExplore').parentNode.removeChild(getObj('bookmarkExplore'));
+}
+var timeoutSpecifier = null;
+function hideSubMenu(subMenuId) {
+	timeoutSpecifier = setTimeout(function() {
+		getObj(subMenuId).style.display = 'none';
+	}, 100);
+}
+function ctrlSubMenu(parentId, subMenuId) {
+	clearTimeout(timeoutSpecifier);
+	getObj(subMenuId).style.display = '';
+	getObj(parentId).onmouseout = function() {
+		hideSubMenu(subMenuId);
+		getObj(parentId).onmouseout = '';
+	};
+	getObj(subMenuId).onmouseout = function() {
+		hideSubMenu(subMenuId);
+	};
+	getObj(subMenuId).onmouseover = function() {
+		clearTimeout(timeoutSpecifier);
+		getObj(subMenuId).style.display = '';
+	};
+}
+function bindSearchTypes() {
+	var elements = getObj('searchTypeSelect').getElementsByTagName('li');
+	for (i=0; i<elements.length; i++) {
+		elements[i].onclick = function() {
+			currentType = this.id.substr(11);
+			getObj('searchType').value = currentType;			
+			selectSearchType();
+
+			getObj('submitSearch').innerHTML = this.innerHTML.replace(/(\s*$)/g, "");
+			if (getObj('searchKeyword').value != '') {
+				//getObj('searchForm').submit();
+			} else {
+				getObj('searchKeyword').focus();
+			}
+			displayElement('searchTypeSelect', false);
+		}
+	}
+}
+function selectSearchType() {
+	var elements = getObj('searchTypeSelect').getElementsByTagName('li');
+	currentType = getObj('searchType').value;
+	for (i=0; i<elements.length; i++) {
+		elements[i].className = (elements[i].id.substr(11) == currentType ? 'current' : '');
+	}
+}
+
+bindSearchTypes();
+getObj('submitSearch').onmouseover = function() {
+	selectSearchType();
+	ctrlSubMenu('submitSearch', 'searchTypeSelect');
+};
+//getObj('submitSearch').onclick = function() {getObj('searchForm').submit();};
+</script>
+			<div class="fr">
+<!--
+EOT;
+if ($winduid) {print <<<EOT
+-->
+				<a href="u.php" class="b">$windid</a>
+				<a href="$loginouturl" class="mr10">退出</a><i>&nbsp;</i>
+<!--
+EOT;
+	if($winddb['newpm']>0 && $_G['maxmsg']>=0){
+print <<<EOT
+-->
+				<a href="message.php" class="newmes">消息<span class="s2">($winddb[newpm])</span></a>
+<!--
+EOT;
+	}else{print <<<EOT
+-->
+				<a href="message.php">消息</a>
+<!--
+EOT;
+	}
+	$db_menuinit .= ",'td_profile' : 'menu_profile'";print <<<EOT
+-->
+				<a id="td_profile" href="profile.php" class="mr10 link_down"><span>设置</span></a>
+<!--
+EOT;
+	if (CkInArray($windid, $manager) || $SYSTEM['allowadmincp']) {print <<<EOT
+-->
+				<i>&nbsp;</i><a href="$db_adminfile" target="_blank">系统设置</a>
+<!--
+EOT;
+	}
+} else {print <<<EOT
+-->
+				<a href="$loginurl" class="mr10">登录</a><i>&nbsp;</i><a href="$regurl" class="mr10">注册</a>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</div>
+		</div>
+	</div>
+ <!--head begin-->
+	<div class="headB">
+		<div class="place">
+			<div class="one">
+			<img src="u/images/module/visit.png" /><h2>广场</h2><a href="u.php" class="s7">返回个人中心</a>
+			</div>
+		</div>
+	</div>
+<!--
+EOT;
+if ($winduid) {print <<<EOT
+-->
+	<div id="menu_profile" style="display:none;">
+		<div style="margin-right:-6px;">
+		<div class="pw_menu" style="width:45px; position:relative;">
+			<h6 style="left:-1px;"><a href="profile.php" class="link_down"><span>设置</span></a></h6>
+			<ul class="menuList" style="width:43px;">
+				<li><a href="profile.php?action=modify">帐号</a></li>
+				<li><a href="profile.php?action=privacy">隐私</a></li>
+				<li><a href="userpay.php">积分</a></li>
+				<li><a href="profile.php?action=permission">权限</a></li>
+			</ul>
+		</div>
+		</div>
+	</div>
+<!--
+EOT;
+} if ($homenavigation['linkdown']) {
+print<<<EOT
+-->
+	<div id="menu_omainNav" style="display:none;">
+		<div style="margin-left:-6px;">
+		<div class="pw_menu" style="width:93px; position:relative;">
+			<h6 style="left:-1px;"><a href="$_mainUrl" class="link_down"><span>更多</span></a></h6>
+			<ul class="menuList" style="width:91px;">
+<!--
+EOT;
+foreach($homenavigation['linkdown'] as $key => $value) {
+print<<<EOT
+-->
+				<li><a href="{$value[data][link]}"><span>{$value[data][title]}</span></a></li>
+<!--
+EOT;
+}print <<<EOT
+-->
+			</ul>
+		</div>
+		</div>
+	</div>
+<!--
+EOT;
+}print <<<EOT
+-->
+	</div>
+	<div class="main mainB" style="background:#fff;">
+<!--
+EOT;
+?>

@@ -1,0 +1,903 @@
+<!--<?php
+print <<<EOT
+-->
+EOT;
+require modeEot('header');
+print <<<EOT
+<!--主体_开始-->
+    <div id="content">
+    
+    	<!--通栏_开始-->
+        <div class="ad_long">
+           <div class="view-hover" invokename="J2123city@时尚" altname="J2123city@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J2123city@时尚','广告1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="960" height="40" /></a>
+EOT;
+}print <<<EOT
+</div>
+        </div>
+        <!--通栏_结束-->
+
+        
+    	<!--频道_开始-->
+        <style>
+		#nav-title li a{margin-left:4px}
+		</style>
+		<div id="channel-nav">
+           <div class="view-hover" invokename="I8489fashion@时尚" altname="I8489fashion@时尚" channelid="fashion">            <ol id="nav-title">
+                <li class="logo"></li>
+                <li class="nav-menu">
+               <a href="{url}" target="_blank" title="{title}">探店先锋</a>
+               <a href="{url}" target="_blank" title="{title}">时尚测试</a>
+               <a href="{url}" target="_blank" title="{title}">创意DIY</a>
+               <a href="{url}" target="_blank" title="{title}">血拼狂人</a>
+               <a href="{url}" target="_blank" title="{title}">消费资讯</a>
+               <a href="{url}" target="_blank" title="{title}">时尚男人</a>
+               <a href="{url}" target="_blank" title="{title}">晒物王</a>
+               <a href="{url}" target="_blank" title="{title}">美妞搭配</a>
+               <a href="{url}" target="_blank" title="{title}">其他</a>
+</li>
+
+</ol>
+
+
+</div>
+
+            
+        </div>
+        <!--频道_结束-->
+        
+    	<!--房产焦点_开始-->
+        <div id="channel-focus">
+        	<div id="focus-a">
+                <div id="neirong-right2-b">
+                <div class="view-hover" invokename="T5203city@时尚" altname="T5203city@时尚" channelid="fashion"><div class="newflash pr">
+	<ul class="flashimg" id="SlayerA_1">
+EOT;
+$pwresult = pwTplGetData('T5203city@时尚','图片播放器');
+$temp =array();
+foreach($pwresult as $key=>$val){
+$temp[] =$key+1;
+print <<<EOT
+<li class="switchItem" style="display:none"><a href="$val[url]"><img width="310" height="215" src="$val[image]" /></a><p><a href="$val[url]">$val[title]</a></p></li>
+EOT;
+}print <<<EOT
+</ul>
+	<div class="flashBg"></div>
+	<ul class="an" id="SlayerA_2">
+EOT;
+foreach ($temp as $value) {
+print <<<EOT
+<li class="switchNavItem"><a href="javascript:;">$value</a></li>
+EOT;
+}
+print <<<EOT
+</ul>
+</div>
+<script language="javascript" src="mode/area/js/ddsliderplayer.js"></script>
+<script>
+ddSliderPlayers('SlayerA_1','SlayerA_2',6,'current');
+</script>
+
+
+</div> 
+                </div>                
+            	
+                <dl id="a-event" class="focus-box">
+               <dt><div class="view-hover" invokename="A6309fashion@时尚" altname="A6309fashion@时尚" channelid="fashion"><span><a href="area.php?p=push&fid=0&invokename=fashion_%BB%EE%B6%AF%D7%A8%CC%E2" target="_blank" style="display:none;">更多</a></span><strong>活动·专题</strong>
+
+</div></dt>
+                    <dd>                
+               <div class="view-hover" invokename="Z350fashion@时尚" altname="Z350fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('Z350fashion@时尚','活动专题图文');
+print <<<EOT
+<ol>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="120" height="90"  /><br />$val[title] </a>
+</li>
+EOT;
+}print <<<EOT
+</ol>
+
+
+</div>
+               <div class="view-hover" invokename="Z3502fashion@时尚" altname="Z3502fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('Z3502fashion@时尚','活动专题列表');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+                    </dd>
+                </dl>
+
+            
+            </div>
+            
+            <div id="focus-b">
+                <dl class="box-b">
+                    <dt><div class="view-hover" invokename="X4228fashion@时尚" altname="X4228fashion@时尚" channelid="fashion"><span><a href="#" style="display:none;">更多&gt;&gt;</a></span>
+</div></dt>
+                    <dd>            
+                        
+                        <div class="view-hover" invokename="J8688fashion@时尚" altname="J8688fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J8688fashion@时尚','今日聚焦');
+foreach($pwresult as $key=>$val){print <<<EOT
+<h2><a href="$val[url]" target="_blank" title="$val[title]"><font color=#FF0000>$val[title] </font></a></h2>
+<p> $val[descrip]<a href="http://bbs.hualongxiang.com/read.php?tid=6741126" target="_blank">[详情]</a> </p>
+EOT;
+}print <<<EOT
+</div>
+    
+   
+<div class="item"> 
+<div class="view-hover" invokename="J1659fashion@时尚" altname="J1659fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J1659fashion@时尚','今日聚焦图片');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100" /></a>
+EOT;
+}
+$pwresult = pwTplGetData('J1659fashion@时尚','今日聚焦列表');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]"><font>$val[title]</font></a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+</div>
+<div class="item"> 
+<div class="view-hover" invokename="J16592fashion@时尚" altname="J16592fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J16592fashion@时尚','今日聚焦图片2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100" /></a>
+EOT;
+}
+$pwresult = pwTplGetData('J16592fashion@时尚','今日聚焦列表2');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]"><font>$val[title]</font></a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+</div>
+<div class="item"> 
+<div class="view-hover" invokename="J16593fashion@时尚" altname="J16593fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J16593fashion@时尚','今日聚焦图片3');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100" /></a>
+EOT;
+}
+$pwresult = pwTplGetData('J16593fashion@时尚','今日聚焦列表3');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]"><font>$val[title]</font></a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>	
+</div>
+<div class="item"> 
+<div class="view-hover" invokename="J16594fashion@时尚" altname="J16594fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J16594fashion@时尚','今日聚焦图片4');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100" /></a>
+EOT;
+}
+$pwresult = pwTplGetData('J16594fashion@时尚','今日聚焦列表4');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]"><font>$val[title]</font></a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+                    </dd>
+	</dl>                        
+            </div>
+        
+        	<div id="focus-c">
+            
+            	<div id="c-banner">
+<div class="view-hover" invokename="K5757fashion@时尚" altname="K5757fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('K5757fashion@时尚','广告2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="265" height="230" /></a>
+EOT;
+}print <<<EOT
+</div>                    
+	</div>
+
+            
+            	<dl id="c-test" class="focus-box">
+               <dt><div class="view-hover" invokename="Z5788fashion@时尚" altname="Z5788fashion@时尚" channelid="fashion"><span>每天教您一招装修秘笈</span><strong>装修课程表</strong>
+
+</div></dt>
+<dd>
+
+<div class="view-hover" invokename="M6244fashion@时尚" altname="M6244fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('M6244fashion@时尚','修课程表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="80" height="80"  /></a>
+	<a href="$val[url]" target="_blank" title="$val[title]"><strong>$val[title] </strong></a><br />
+		$val[descrip]<a href="$val[url]" target="_blank" title="$val[title]">[详情]</a>                    
+	</p>
+EOT;
+}print <<<EOT
+</div>    
+    
+    <ul>
+ <div class="view-hover" invokename="W8804fashion@时尚" altname="W8804fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('W8804fashion@时尚','修课程表列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div>    
+    </ul>
+
+	
+</dd>
+
+                    
+                </dl>
+                
+            	<dl id="c-free" class="focus-box">
+                
+                     
+                    <dt><div class="view-hover" invokename="L9836fashion@时尚" altname="L9836fashion@时尚" channelid="fashion"><span><a href="{url}" target="_blank" title="{title}" style="display:none;">更多</a></span><strong>装修活动</strong>
+
+</div></dt>
+                    <dd>                
+               <ul><div class="view-hover" invokename="P7895fashion@时尚" altname="P7895fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('P7895fashion@时尚','免费试用');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" width="70" height="60" /></a>
+$val[title]<br />
+
+共<span>15</span>份(10ml)<br />
+<button></button>$val[postdate]
+</li>
+EOT;
+}print <<<EOT
+</div></ul>
+
+                    </dd>
+                </dl>            
+            
+            </div>
+        
+        </div>
+        
+        <div class="c"></div>
+        <div id="channel-push">
+
+
+	<div class="push-div"><div class="view-hover" invokename="O1223fashion@时尚" altname="O1223fashion@时尚" channelid="fashion"><a href="{url}" target="_blank" title="{title}">你最喜欢哪种颜色</a> | <a href="{url}" target="_blank" title="{title}">LENA的绝美秋冬搭配</a> | <a href="{url}" target="_blank" title="{title}">《三枪》混搭第一名</a> | <a href="{url}" target="_blank" title="{title}">男人们喜欢穿打底裤</a> 
+
+ &nbsp; &nbsp; &nbsp;<a href="{url}" target="_blank" title="{title}">更多</a>
+ 
+ 
+</div></div>
+ 
+ 
+ <ul>
+ <div class="view-hover" invokename="G5247fashion@时尚" altname="G5247fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('G5247fashion@时尚','精彩推荐');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="210" height="110"  /></a>
+<strong>$val[title]</strong></li>
+EOT;
+}print <<<EOT
+</div>
+</ul>
+
+        </div>
+        
+    	<!--房产焦点_开始-->
+        
+        <div class="c"></div>
+    
+    	<!--通栏_开始-->
+        <div class="ad_long">
+
+           <div class="view-hover" invokename="U89fashion@时尚" altname="U89fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('U89fashion@时尚','广告3');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="960" height="60" /></a>
+EOT;
+}print <<<EOT
+</div>
+        </div>
+        <!--通栏_结束-->
+    
+    	<!--搭配宝典_开始-->
+        <div class="channel-area">
+	<div class="c"></div>
+	<div class="a"><div class="b"></div></div>
+</div>
+
+<div id="channel-news" class="channel-box">
+
+	<div id="news-a">
+	
+		<dl>
+		
+<dt>
+	<div class="view-hover" invokename="L8049fashion@时尚" altname="L8049fashion@时尚" channelid="fashion"><strong>搭配顾问</strong> Figure adviser
+
+</div>
+</dt>
+
+<dd>
+<div class="view-hover" invokename="J1123fashion@时尚" altname="J1123fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J1123fashion@时尚','搭配顾问');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+		<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="60" height="60" /></a>
+		<a href="$val[url]" target="_blank" title="$val[title]"><strong>$val[title]</strong></a><br />
+		$val[descrip] 
+</p>
+<div>
+		<button></button>
+		<span>$val[author]</span>
+</div>
+EOT;
+}print <<<EOT
+</div>
+    
+    </dd>
+<div class="news-a"></div>		
+<dt>
+
+	<div class="view-hover" invokename="H8487fashion@时尚" altname="H8487fashion@时尚" channelid="fashion"><strong>搭配秀</strong> Show
+
+</div>
+</dt>
+
+<dd>
+<div class="view-hover" invokename="F4012fashion@时尚" altname="F4012fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('F4012fashion@时尚','搭配秀');
+print <<<EOT
+<ul id="a-show">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="140" /></a><br />
+<a href="$val[url]" target="_blank" title="$val[title]">$val[title] </a>
+</li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+</dd>
+		
+		</dl>
+	
+	</div>
+
+	<div id="news-b">
+	
+		<dl>
+
+		
+<dt>
+	<div class="view-hover" invokename="I3750fashion@时尚" altname="I3750fashion@时尚" channelid="fashion"><strong>新视点</strong> Look</font></strong>
+
+</div>
+</dt>
+
+<dd>
+<div class="news-b-a">
+<div class="view-hover" invokename="Q3444fashion@时尚" altname="Q3444fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('Q3444fashion@时尚','新视点图1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="130" height="180" /></a>
+EOT;
+}print <<<EOT
+</div>
+</div>
+    
+    <div class="news-b-b">
+ <div class="view-hover" invokename="S6024fashion@时尚" altname="S6024fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('S6024fashion@时尚','新视点头条1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+<strong>
+<a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></strong><br />
+$val[descrip] <a href="$val[url]" target="_blank" title="$val[title]">[详情]</a>                    
+</p>
+EOT;
+}print <<<EOT
+</div>       
+        <ul>
+<div class="view-hover" invokename="M9106fashion@时尚" altname="M9106fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('M9106fashion@时尚','新视点列表1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div>       
+        </ul>
+
+	
+	</div>
+
+</dd>
+		
+<dt>
+	<div class="view-hover" invokename="Z2498fashion@时尚" altname="Z2498fashion@时尚" channelid="fashion"><strong>流行搭</strong> Fashion
+</div>
+</dt>
+
+<dd><div class="news-b-a">
+	<div class="view-hover" invokename="C5687fashion@时尚" altname="C5687fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('C5687fashion@时尚','新视点图2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="130" height="180" /></a>
+EOT;
+}print <<<EOT
+</div>
+	</div><div class="news-b-b">
+ <div class="view-hover" invokename="H5357fashion@时尚" altname="H5357fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('H5357fashion@时尚','新视点头条2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+<strong>
+<a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></strong><br />
+$val[descrip] <a href="$val[url]" target="_blank" title="$val[title]">[详情]</a>                    
+</p>
+EOT;
+}print <<<EOT
+</div>
+<div class="view-hover" invokename="J2874fashion@时尚" altname="J2874fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J2874fashion@时尚','新视点列表2');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>	
+	</div>
+
+</dd>
+		
+		</dl>
+
+		
+		<div id="b-banner">
+<div class="view-hover" invokename="E1792fashion@时尚" altname="E1792fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('E1792fashion@时尚','广告4');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="420" height="70" /></a>
+EOT;
+}print <<<EOT
+</div>
+		</div>
+	
+	</div>
+
+	<div id="news-c">
+	
+		<dl>
+		
+<dt>
+<div class="view-hover" invokename="O5353fashion@时尚" altname="O5353fashion@时尚" channelid="fashion">	<strong>教你搭</strong> Teach
+    
+</div>
+
+</dt>
+
+<dd>
+<div class="view-hover" invokename="U3988fashion@时尚" altname="U3988fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('U3988fashion@时尚','教你搭');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p><a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="70" height="90"  /></a>
+		
+		<a href="$val[url]" target="_blank" title="$val[title]"><strong>$val[title]</strong></a><br />
+		$val[descrip] <a href="$val[url]" target="_blank" title="$val[title]">[详情]</a>                    
+	</p>
+EOT;
+}print <<<EOT
+</div>   
+    
+    </dd>
+		
+		</dl>
+
+	
+	</div>
+
+	<span class="clear"></span>
+
+</div>
+
+        <!--搭配宝典_结束-->
+    
+    	<!--通栏_开始-->
+        <div class="ad_long">
+           <div class="view-hover" invokename="O2813fashion@时尚" altname="O2813fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('O2813fashion@时尚','广告5');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="960" height="60" /></a>
+EOT;
+}print <<<EOT
+</div>
+
+        </div>
+        <!--通栏_结束-->
+    
+    	<!--美容护肤_开始-->
+        <div class="channel-area">
+            <div class="c area-c2"></div>
+            <div class="a"><div class="b"><div class="view-hover" invokename="Q9133fashion@时尚" altname="Q9133fashion@时尚" channelid="fashion"><a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=93#c">护肤心得</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=94#c">我就爱晒</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=95#c">化妆美颜</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=96#c">以内养外</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=97#c">优质男人</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=98#c">明星秘密</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=99#c">美发造型</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=136&type=100#c">其他</a>
+
+</div></div></div>
+
+        </div>
+        
+        <div id="channel-log" class="channel-box" style="position:relative">
+        	<div id="log-a">	
+            
+		<ol>
+        <div class="view-hover" invokename="R9940fashion@时尚" altname="R9940fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('R9940fashion@时尚','美容护肤左上');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li style="position:relative">
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="140" height="210"  /></a>
+	<div>$val[title]</div>
+</li>
+EOT;
+}print <<<EOT
+</div>
+</ol>
+	
+		<ul>
+        <div class="view-hover" invokename="X9415fashion@时尚" altname="X9415fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('X9415fashion@时尚','美容护肤左下');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span><a href="$val[url]" target="_blank" title="$val[title]">$val[author]</a></span> <a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div> 
+        </ul>
+
+	
+	</div>
+
+	<div id="log-b">
+    <div class="view-hover" invokename="V6424fashion@时尚" altname="V6424fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('V6424fashion@时尚','图文一');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+<a href="$val[url]" target="_blank" title="$val[title]">
+<img src="$val[image]" alt="$val[title]" width="80" height="80"  /></a>
+
+<strong><font color=#000000>$val[title] </font></strong><br />
+$val[descrip]<a href="$val[url]" target="_blank" title="$val[title]">
+[详情]</a>                    
+</p>
+EOT;
+}print <<<EOT
+</div>
+        
+        <ol>
+        <div class="view-hover" invokename="D2021fashion@时尚" altname="D2021fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('D2021fashion@时尚','美容护肤中上');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="150" height="100" /><br />$val[title] </a>
+</li>
+EOT;
+}print <<<EOT
+</div></ol>
+		
+		<div class="log-b"></div><ul><div class="view-hover" invokename="H6950fashion@时尚" altname="H6950fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('H6950fashion@时尚','美容护肤中下');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div></ul>
+	
+	</div>
+
+	<div id="log-c"><ul>
+    <div class="view-hover" invokename="L9139fashion@时尚" altname="L9139fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('L9139fashion@时尚','美容王牌客1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="first">
+	<img src="$val[image]" alt="$val[title]" width="80" height="80"  />
+	<div>
+		<a href="$val[url]" target="_blank" title="$val[title]"><strong>$val[title]</strong></a>
+		<p>$val[descrip] <a href="$val[url]" target="_blank" title="$val[title]">[详情]</a></p>
+	</div>
+</li>
+EOT;
+}print <<<EOT
+</div>
+	<div class="view-hover" invokename="L91392fashion@时尚" altname="L91392fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('L91392fashion@时尚','美容王牌客2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+	<img src="$val[image]" alt="$val[title]" width="40" height="40"  />
+	<div>
+<a href="$val[url]" target="_blank" title="$val[title]"><strong><font color=#000000>$val[title]</font>...</strong></a>
+	$val[descrip] <a href="$val[url]" target="_blank" title="$val[title]">[详情]</a>
+	</div>
+</li>
+EOT;
+}print <<<EOT
+</div>
+</ul>                
+	</div>
+
+
+		</div>
+
+        <div id="channel-tool">
+            <ul>
+            <div class="view-hover" invokename="Y1207fashion@时尚" altname="Y1207fashion@时尚" channelid="fashion">                <li><a href="http://www.boohee.com/assessment/bmi" target="_blank"></a></li>
+                <li><a href="http://www.boohee.com/assessment/standard_weight" target="_blank"></a></li>
+
+                <li><a href="http://www.boohee.com/assessment/bmr" target="_blank"></a></li>
+                <li><a href="http://www.boohee.com/assessment/activity_calory" target="_blank"></a></li>
+                <li><a href="http://www.boohee.com/assessment/health_weight" target="_blank"></a></li>
+                <li><a href="http://www.boohee.com/assessment/heart_rate" target="_blank"></a></li>
+                
+</div>
+            </ul>
+        </div>
+        
+        <!--美容护肤_结束-->
+        
+    	<!--通栏_开始-->
+        <div class="ad_long">
+
+           <div class="view-hover" invokename="K7956fashion@时尚" altname="K7956fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('K7956fashion@时尚','广告6');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="960" height="40" /></a>
+EOT;
+}print <<<EOT
+</div>
+        </div>
+        <!--通栏_结束-->
+    
+    	<!--健身美体_开始-->
+        <div class="channel-area">
+            <div class="c area-c3"></div>
+            <div class="a"><div class="b"><div class="view-hover" invokename="C3881fashion@时尚" altname="C3881fashion@时尚" channelid="fashion"><a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1013#c">明星瘦身</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1015#c">减肥天天记</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1016#c">运动减肥</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1017#c">保健养身</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1018#c">健康食谱</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1019#c">晒晒身材</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1020#c">舞动奇迹</a> | <a href="http://bbs.hualongxiang.com/thread.php?fid=1466&type=1014#c">其他</a>
+
+</div></div></div>
+
+        </div>
+        
+        <div id="channel-old" class="channel-box">        
+            
+            <div id="old-a">
+            <div class="view-hover" invokename="C661fashion@时尚" altname="C661fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('C661fashion@时尚','健身美体左');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="320" height="280"  /></a>
+		<div class="old-a">$val[title]</div>
+EOT;
+}print <<<EOT
+</div>
+	</div>
+    
+    <div id="old-b">
+    <div class="old-bleft">
+    <div class="view-hover" invokename="Q4661fashion@时尚" altname="Q4661fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('Q4661fashion@时尚','健身美体中1');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100" /><br />$val[title] </a>
+EOT;
+}print <<<EOT
+</div>
+    </div>
+    <ul><div class="view-hover" invokename="E4438fashion@时尚" altname="E4438fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('E4438fashion@时尚','健身美体中2');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div></ul>
+
+		<div class="old-b"></div><div class="old-bleft"><div class="view-hover" invokename="X8234fashion@时尚" altname="X8234fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('X8234fashion@时尚','健身美体中3');
+foreach($pwresult as $key=>$val){print <<<EOT
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="100" height="100"  /><br />$val[title] </a>
+EOT;
+}print <<<EOT
+</div></div><ul><div class="view-hover" invokename="R1478fashion@时尚" altname="R1478fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('R1478fashion@时尚','健身美体中4');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</div></ul>
+	</div>
+
+	<div id="old-c"><ul>
+    <div class="view-hover" invokename="R4287fashion@时尚" altname="R4287fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('R4287fashion@时尚','健身美体右');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="110" height="85"  /><br />$val[title] </a>
+</li>
+EOT;
+}print <<<EOT
+</div>
+</ul>
+	
+	</div>
+
+
+        </div>
+
+        <!--健身美体_结束-->
+        
+    	<!--男士时尚_开始-->
+<div class="channel-area">
+	<div class="c area-c4"></div>
+	<div class="a"><div class="b"></div></div>
+</div>
+
+<div id="channel-bbs" class="channel-box">
+	<div id="bbs-a">
+    <div class="view-hover" invokename="F8967fashion@时尚" altname="F8967fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('F8967fashion@时尚','男士时尚上');
+print <<<EOT
+<ul>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li>
+	<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="170" height="120"  /><br />$val[title] </a>
+</li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+	</div>
+	<div id="bbs-b">
+   <div class="view-hover" invokename="J7509fashion@时尚" altname="J7509fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('J7509fashion@时尚','男士时尚中上');
+print <<<EOT
+<ul>
+
+<li><strong>运动</strong></li>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+
+		<div class="bbs-b"></div>
+    <div class="view-hover" invokename="X9092fashion@时尚" altname="X9092fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('X9092fashion@时尚','男士时尚中下');
+print <<<EOT
+<ul>
+<li><strong>健康</strong></li>
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank" title="$val[title]">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+
+</div>
+	</div>
+
+	<div id="bbs-c"><div class="view-hover" invokename="V7585fashion@时尚" altname="V7585fashion@时尚" channelid="fashion">
+EOT;
+$pwresult = pwTplGetData('V7585fashion@时尚','男士时尚右');
+foreach($pwresult as $key=>$val){print <<<EOT
+<p>
+<a href="$val[url]" target="_blank" title="$val[title]"><img src="$val[image]" alt="$val[title]" width="80" height="80"  /></a>
+<strong>$val[title]</strong><br />
+$val[descrip]  <a href="$val[url]" target="_blank" title="$val[title]">
+[详情]</a>
+</p>
+EOT;
+}print <<<EOT
+</div></div>
+</div>
+      
+        <!--男士时尚_结束-->
+        
+    </div>
+    
+    <!--主体_结束-->
+EOT;
+require modeEot('footer');
+print <<<EOT
+<!--
+EOT;
+?>-->

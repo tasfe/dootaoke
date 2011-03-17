@@ -1,0 +1,169 @@
+<!--<?php
+require_once uTemplate::PrintEot('header');
+require_once uTemplate::PrintEot('profile_left');
+print <<<EOT
+-->
+<div class="contUser">
+	<div class="p15">
+		<h4 class="site"><span>新浪微博绑定</span></h4>
+		<div class="navC">
+<!--
+EOT;
+$tmpBindClass = $t != 'resetpwd' ? ' class="current"' : '';
+$tmpPwdClass = $t == 'resetpwd' ? ' class="current"' : '';
+print <<<EOT
+-->
+			<ul>
+				<li{$tmpBindClass}><a href="profile.php?action=$action" hidefocus="true">绑定与同步设置</a></li>
+<!--
+EOT;
+if ($isBindWeibo) {
+print <<<EOT
+-->
+				<li{$tmpPwdClass}><a href="profile.php?action=$action&t=resetpwd" hidefocus="true">创建密码及解绑</a></li>
+<!--
+EOT;
+}
+print <<<EOT
+-->
+			</ul>
+		</div>
+<!--
+EOT;
+if ($t != 'resetpwd') {
+	if ($isBindWeibo) {
+print <<<EOT
+-->
+
+		<form action="profile.php?action=$action&t=setsync" method="post">
+		<input type="hidden" name="verify" value="$verifyhash" />
+		<div class="p15">
+
+			<div class="mb20">
+				你已将本站帐号 $windid 与新浪微博账号 <a class="s3" target="_blank" href="http://t.sina.com.cn/{$bindInfo[info][id]}">{$bindInfo[info][name]}</a> 绑定
+			</div>
+			
+			<div class="b f14 s7 mb15"><a name="friend"></a>同步类型设置</div>
+			<div class="mb5">我产生的新鲜事，通过设置，下面这些新鲜事将同步到新浪微博</div>
+			<div class="p15 bgA mb20">
+				<div>
+					<label class="mr20"><input type="checkbox" name="article_issync" value="1" {$article_issync} />帖子</label>
+					<label class="mr20"><input type="checkbox" name="diary_issync" value="1" {$diary_issync} />日志</label>
+					<label class="mr20"><input type="checkbox" name="photos_issync" value="1" {$photos_issync} />相册</label>
+					<label class="mr20"><input type="checkbox" name="group_issync" value="1" {$group_issync} />群组</label>
+				</div>
+				<div>
+					<label class="mr20"><input type="checkbox" name="transmit_issync" value="1" {$transmit_issync} />转发的新鲜事</label>
+					<label class="mr20"><input type="checkbox" name="comment_issync" value="1" {$comment_issync} />新鲜事的回复</label>
+				</div>
+			</div>
+			<div class="tac">
+				<span class="btn"><span><button type="submit">提 交</button></span></span>
+			</div>
+			
+		</div>
+		</form>
+
+<!--
+EOT;
+	} else {
+print <<<EOT
+-->
+		<div class="p15">
+
+			<div class="mb10">绑定新浪微博帐号，就可以使用新浪微博账号登录，随时随地同步你的新鲜事，让更多的朋友分享你的生活！</div>
+			
+			<div class="mb10">
+				同步到 <img src="u/images/expand/sina.png" align="absmiddle" class="mr10" />
+				<a href="javascript:;" onclick="window.open('$bindSinaWeiboUrl', 'sinaWeiboBind', 'height=520, width=850, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no');">去新浪上设置同步&gt;&gt;</a>
+			</div>
+		</div>
+<!--
+EOT;
+	}
+} else {
+print <<<EOT
+-->
+		<div class="p15">
+		<form action="profile.php?action=$action&t=unbind" method="post">
+			<div class="b f14 s7 mb15"><a name="friend"></a>解除绑定</div>
+<!--
+EOT;
+	if (!$isNotResetPassword) {
+print <<<EOT
+-->
+			<div class="mb5">你确定要解除绑定么？解除绑定后，你依然可以用{$windid}登录本站</div>
+			<div>
+				<span class="btn"><span><button type="submit">解除绑定</button></span></span>
+			</div>
+<!--
+EOT;
+	} else {
+print <<<EOT
+-->
+			<div class="mb5">你还没有创建密码，解绑前请先创建本站登录密码</div>
+<!--
+EOT;
+	}
+print <<<EOT
+-->
+		</form>
+		</div>
+
+		<form action="profile.php?action=$action&t=setpassword" method="post">
+		<input type="hidden" name="verify" value="$verifyhash" />
+		<div class="p15">
+			<div class="b f14 s7 mb15">创建密码</div>
+<!--
+EOT;
+	if ($isNotResetPassword) {
+print <<<EOT
+-->
+			<div class="mb15">你创建登录密码后，即可使用本站帐号 {$windid} 登录</div>
+			
+			<table width="100%" class="setTable">
+				<tr>
+					<th class="th">用户名</th>
+					<td class="td">{$windid}</td>
+				</tr>
+				<tr>
+					<th class="th">新密码</th>
+					<td class="td"><input class="input" type="password" size="25" name="resetpwd" value="" /></td>
+				</tr>
+				<tr>
+					<th class="th">确认新密码 </th>
+					<td class="td"><input class="input" type="password" size="25" name="resetpwd_repeat" value="" /></td>
+				</tr>
+			</table>
+			
+			<div class="tac mb20">
+				<span class="btn"><span><button type="submit">提 交</button></span></span>
+			</div>
+<!--
+EOT;
+	} else {
+print <<<EOT
+-->
+			<div class="mb5">你已经设置过密码</div>
+<!--
+EOT;
+	}
+print <<<EOT
+-->
+			
+		</div>
+		</form>
+
+<!--
+EOT;
+}
+print <<<EOT
+-->
+
+
+	</div>
+</div>
+<!--
+EOT;
+require_once uTemplate::printEot('footer');
+?>-->

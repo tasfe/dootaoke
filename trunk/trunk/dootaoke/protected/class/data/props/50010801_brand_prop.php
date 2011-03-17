@@ -1,0 +1,55 @@
+<?php
+/**
+*  数据文件:1801=美容护肤/美体/精油
+*/
+global $_G;
+$_G['default_brand'] =
+	array('name'=>'品牌','pid' => '20000',
+	'prop_values'=>array(
+		'@attributes' => array('list'=>'true'),
+		'prop_value' => array (
+			array('name' => 'Avon/雅芳','vid' => '20000'),
+			array('name' => 'Benefit','vid' => '20014'),
+			array('name' => 'Bobbibrown/波比布朗','vid' => '20010'),
+			array('name' => 'Chanel/香奈尔','vid' => '41395'),
+			array('name' => 'Chantecaille/香缇卡','vid' => '31344'),
+			array('name' => 'Clinique/倩碧','vid' => '20021'),
+			array('name' => 'Colourzone/色彩地带','vid' => '66905'),
+			array('name' => 'covermark/傲丽','vid' => '31709'),
+			array('name' => 'Dior/迪奥','vid' => '29478'),
+			array('name' => 'EsteeLauder/雅诗兰黛','vid' => '20034'),
+			array('name' => 'Etude/爱丽','vid' => '20035'),
+			array('name' => 'HR/赫莲娜','vid' => '20051'),
+			array('name' => 'Kanebo/嘉娜宝','vid' => '20061'),
+			array('name' => 'Kose/高丝','vid' => '20060'),
+			array('name' => 'Lancome/兰蔻','vid' => '20067'),
+			array('name' => 'Laneige/兰芝','vid' => '20066'),
+			array('name' => 'LauraMercier','vid' => '31711'),
+			array('name' => 'L’oreal/欧莱雅','vid' => '3214483'),
+			array('name' => 'MAC/魅可','vid' => '44926'),
+			array('name' => 'Makeupforever/浮生若...','vid' => '31712'),
+			array('name' => 'Marykay/玫琳凯','vid' => '20074'),
+			array('name' => 'Maxfactor/密丝佛陀','vid' => '20077'),
+			array('name' => 'Maybelline/美宝莲','vid' => '20075'),
+			array('name' => 'Menard美伊娜多','vid' => '27146'),
+			array('name' => 'Missha','vid' => '27134'),
+			array('name' => 'Ohui/欧蕙','vid' => '66908'),
+			array('name' => 'Revlon/露华浓','vid' => '27136'),
+			array('name' => 'RMK','vid' => '41337'),
+			array('name' => 'SANA','vid' => '59744'),
+			array('name' => 'Shiseido/资生堂','vid' => '20096'),
+			array('name' => 'Shu-uemura/植村秀','vid' => '20099'),
+			array('name' => 'Sisley/希思黎','vid' => '20097'),
+			array('name' => 'Skinfood','vid' => '33602'),
+			array('name' => 'SOFINA/索菲娜','vid' => '20138'),
+			array('name' => 'Thebodyshop/美体小铺','vid' => '20105'),
+			array('name' => 'TheFaceShop','vid' => '27133'),
+			array('name' => 'YSL/圣罗兰','vid' => '20112'),
+			array('name' => 'YUE-SAI/羽西','vid' => '20113'),
+			array('name' => '查名一猫','vid' => '66926'),
+			array('name' => '卡姿兰','vid' => '48830'),
+			array('name' => '自然堂','vid' => '66927'),
+	),
+	),
+);
+?>
