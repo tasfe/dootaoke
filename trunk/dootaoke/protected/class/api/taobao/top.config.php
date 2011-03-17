@@ -1,19 +1,11 @@
 <?php
 // 常用数据
 define('API_URL', 'http://gw.api.taobao.com/router/rest');
-if(rand(1,9)==5) {
-define('APP_KEY', '12177079');
-define('APP_SECRET', 'c79f7bd826dae5e98821f1652eb106e8');
-define('NICK', 'hutai123');	
-}elseif(rand(0,2)) {
-define('APP_KEY', '12009868');
-define('APP_SECRET', '268aee99b240dd97a2decee14c72076b');
-define('NICK', 'hutai123');
-} else {
-define('APP_KEY', '12009226');
-define('APP_SECRET', '6eb1ebd74805155a8dddf1a43effe321');
-define('NICK', 'hutai123');
-}
+
+define('APP_KEY', '');
+define('APP_SECRET', '');
+define('NICK', '');	
+
 
 // 淘宝商品详情URL
 define('ITEM_TAOBAO_URL', "http://item.taobao.com/item.htm?id=");
