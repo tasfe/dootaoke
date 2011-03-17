@@ -1,0 +1,24 @@
+.detail .small_pic{float:left;width:42px;margin-right:10px;}
+.detail .small_pic ul li{margin-bottom:2px;min-height:40px;min-width:40px}
+.detail .small_pic ul li img{border: 1px solid #CDCDCD;}
+.detail .small_pic .current_img{border: 1px solid #97182D;}
+.detail .price{font-size:14px;color:#eb1726;text-align:center;}
+.detail .pic_attributes{font-size:14px;}
+.detail .pic_box{float:left;margin-right:10px;overflow:hidden;}
+.detail .detail_pic{overflow:hidden;width:314px;text-align:center;border:1px solid #CDCDCD;height:314px;display: table-cell;vertical-align: middle;*display:block;*font-family:Arial;*font-size:240px;}
+
+.detail .attributes{display:block;width:383px;float:left;color:#666666;}
+.detail .attributes ul li{margin-bottom:6px;}
+
+.detail .pname h1{text-align:left;font-size:15px;font-weight:bolder;margin-top:5px;margin-bottom:5px;}
+.detail .p_des{width:100%;overflow:hidden;display:block;margin-top:5px;}
+
+.detail .props_box{clear:both;margin:5px 0;}
+.detail .props{background-color:transparent;border:none;margin:0;background-color:#F6F6F6;border:1px solid #DDD;margin-top:0px;}
+.detail .props ul.prop_list{padding-left:3px;}
+.detail .props ul li{float:left;width:255px;overflow:hidden;white-space:nowrap;height:24px;line-height:24px;}
+
+.detail .desc_box{overflow:hidden;padding:4px;}
+
+.products_box .p_list{padding:0px;width:168px;}
+.products_box li{border:none;margin-left:0px;margin-right:0px;padding-left:8px;}

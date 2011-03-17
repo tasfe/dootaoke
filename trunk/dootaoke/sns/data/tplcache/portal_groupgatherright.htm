@@ -1,0 +1,21 @@
+<!--<?php
+print <<<EOT
+-->
+<div class="view-hover" invokename="群组排行@群组聚合页面右侧" altname="群组排行@群组聚合页面右侧" channelid="groupgatherright"><h3 class="cc">群组排行</h3>
+</div>
+<div class="view-hover" invokename="top20@群组聚合页面右侧" altname="top20@群组聚合页面右侧" channelid="groupgatherright"><ol class="ranking">
+EOT;
+$pwresult = pwTplGetData('top20@群组聚合页面右侧','群组列表');
+foreach($pwresult as $key=>$val){
+$creditclass = $key%2 == 0 ? '' : 'odd';
+$tempKey = $key+1<10 ? '0'.($key+1) : $key+1;
+print <<<EOT
+<li class="$creditclass">
+		<a href="$val[url]" target="_blank"><em>$tempKey</em><span class="title">$val[title]</span><span class="order">$val[credit]</span></a>
+	</li>
+EOT;
+}print <<<EOT
+</ol></div>
+<!--
+EOT;
+?>-->

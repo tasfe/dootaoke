@@ -1,0 +1,185 @@
+<!--<?php
+print <<<EOT
+-->
+
+	<div class="w210 fr">
+		<div>
+		<span class="tcorner"><span></span></span>
+		<div class="pane2">
+			<div class="pane2_warp">
+				<div class="hd"><div class="view-hover" invokename="社区达人标题@广场" altname="社区达人标题@广场" channelid="oindex"><h2>社区<em>达人</em></h2>
+
+</div></div>
+				<div class="bd">
+				<div class="view-hover" invokename="社区达人@广场" altname="社区达人@广场" channelid="oindex"><ul class="listimg cc">
+EOT;
+$pwresult = pwTplGetData('社区达人@广场','帖子列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank"><img src="$val[image]" width="64" height="64" /><p class="lh_18 cp">$val[title]</p></a></li>
+EOT;
+}print <<<EOT
+</ul>
+					
+</div>
+				</div>
+			</div>
+		</div>
+		<span class="bcorner"><span></span></span>
+	  </div>
+	  <div class="mt15">
+		<span class="tcorner"><span></span></span>
+		<div class="pane2 pane3">
+			<div class="hd"><div class="view-hover" invokename="热门群组标题@广场" altname="热门群组标题@广场" channelid="oindex">			<h2>热门<em>群组</em></h2>
+
+</div></div>
+			<div class="bd">
+			<div class="view-hover" invokename="热门群组@广场" altname="热门群组@广场" channelid="oindex">
+EOT;
+$pwresult = pwTplGetData('热门群组@广场','帖子列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<div class="subject2 cc">
+	<a href="$val[url]" target="_blank"><img src="$val[image]" width="71" height="71" class="fl" /></a>
+	<h4><a href="$val[url]" target="_blank">$val[title]</a></h4>
+	<p>$val[descrip]</p>
+</div>
+EOT;
+}print <<<EOT
+</div>
+			</div>
+		</div>
+		<span class="bcorner"><span></span></span>
+	  </div>
+	</div>
+	<div class="w710 fl">
+		<div class="cc">
+			<div class="pwSlideWrap fl">
+				<div class="pwSlide2">
+				<div class="view-hover" invokename="幻灯片@广场" altname="幻灯片@广场" channelid="oindex">	<ul class="switch" id="PP1_A">
+EOT;
+$pwresult = pwTplGetData('幻灯片@广场','图片');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li class="switchItem" style="display:">
+			<a href="$val[url]"><img src="$val[image]" width="301" height="327" /><h3>$val[title]</h3></a>
+		</li>
+EOT;
+}print <<<EOT
+</ul>
+	<div class="pwSlide-bg"></div>
+	<ul class="SwitchNav" id="PP1_B">
+EOT;
+for($i = 1; $i<=$key+1; $i++){
+print <<<EOT
+<li class="switchNavItem"><a href="#" onclick="return false;">{$i}</a></li>
+EOT;
+}
+print <<<EOT
+</ul>
+	<script language="javascript" src="mode/area/js/ddsliderplayer.js"></script>
+	<script>ddSliderPlayers('PP1_A','PP1_B',4,'current');</script>
+	
+</div>
+				</div>
+			</div>
+			<div class="w384 fr" id="topNews">
+			<div class="view-hover" invokename="推荐日志摘要@广场" altname="推荐日志摘要@广场" channelid="oindex">	<ul class="tops">
+EOT;
+$pwresult = pwTplGetData('推荐日志摘要@广场','帖子列表');
+foreach($pwresult as $key=>$val){
+$classKey = $key+1;
+print <<<EOT
+<li>
+			<h2 class="t{$classKey}"><a href="$val[url]" target="_blank">$val[title]</a></h2>
+			<p>$val[descrip]</p>
+		</li>
+EOT;
+}print <<<EOT
+</ul>
+				
+</div>
+			<div class="view-hover" invokename="推荐日志列表@广场" altname="推荐日志列表@广场" channelid="oindex">	<ul class="list">
+EOT;
+$pwresult = pwTplGetData('推荐日志列表@广场','帖子列表');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span class="fr gray">$val[author]</span><a href="$val[url]" target="_blank">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+				
+</div>
+			</div>
+		</div>
+		<div class="pane1 mt15">
+			<div class="hd">
+			<h2 class="tabbdvst">
+				<span class="fl"><div class="view-hover" invokename="热门帖子标题@广场" altname="热门帖子标题@广场" channelid="oindex">			热门<em>帖子</em>
+
+
+
+</div></span>
+				
+				<ul class="tabAvst" id="hotbbstopicB">
+					<li class="switchNavItem">热门</li>
+					<li class="switchNavItem">最新</li>
+				</ul>
+				
+				</h2>
+			</div>
+			<div class="c" style="margin-bottom:.5em"></div>
+			<div class="bd cc" id="hotbbstopicA">
+				<div class="switchItem" style="display:none"><div class="view-hover" invokename="热门帖子@广场" altname="热门帖子@广场" channelid="oindex">
+EOT;
+$pwresult = pwTplGetData('热门帖子@广场','帖子列表');
+print <<<EOT
+<ul class="list1">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span class="fr gray">$val[author]</span><a href="$val[url]" target="_blank">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+			
+			
+			
+</div></div>
+				<div class="switchItem" style="display:none"><div class="view-hover" invokename="最新帖子@广场" altname="最新帖子@广场" channelid="oindex">
+EOT;
+$pwresult = pwTplGetData('最新帖子@广场','帖子列表');
+print <<<EOT
+<ul class="list1">
+EOT;
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><span class="fr gray">$val[author]</span><a href="$val[url]" target="_blank">$val[title]</a></li>
+EOT;
+}print <<<EOT
+</ul>
+					
+</div></div>
+			</div>
+			<script>ddSliderPlayers('hotbbstopicA','hotbbstopicB',0,'current');</script>
+			
+		</div>
+		<div class="picture mt15">
+			<h2></h2>
+			<ul class="cc">
+			<div class="view-hover" invokename="精彩照片@广场" altname="精彩照片@广场" channelid="oindex">
+EOT;
+$pwresult = pwTplGetData('精彩照片@广场','精彩照片');
+foreach($pwresult as $key=>$val){print <<<EOT
+<li><a href="$val[url]" target="_blank"><img src="$val[image]" width="119" height="129" /></a></li>
+EOT;
+}print <<<EOT
+</div>
+			</ul>
+			<span class="pic_r"></span>
+		</div>
+		<div class="pane1 mt15">
+			<div class="hd"><div class="view-hover" invokename="最新新鲜事标题@广场" altname="最新新鲜事标题@广场" channelid="oindex"><h2><a href="" class="more">more</a>最新<em>新鲜事</em></h2>
+
+
+</div></div>
+		</div>
+	</div>
+	
+<!--
+EOT;
+?>-->

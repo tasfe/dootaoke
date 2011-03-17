@@ -1,0 +1,2 @@
+document.write("<li> <a href='http://127.0.0.1:8080/zmd/sns/read.php?tid=2' target='_blank'>20习惯必须NG 不然在睡眠中会提前变老</a> <br>");
+document.write("<li> <a href='http://127.0.0.1:8080/zmd/sns/read.php?tid=1' target='_blank'>美人养成计 零花销排毒养肤周计划</a> <br>");
