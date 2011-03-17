@@ -1,2 +1,0 @@
-<?php die;?>1298731078|0.97|0.01|5.0.16-nt-log|2M|60 seconds|SMTP ( Server: localhost)|2|2|2|11|1
-1298691478|a:11:{s:8:"category";s:1:"3";s:8:"forumnum";i:18;s:5:"forum";s:2:"15";s:2:"M3";s:1:"1";s:2:"M4";s:1:"0";s:2:"M5";s:1:"0";s:2:"M7";s:1:"0";s:10:"sharelinks";s:1:"0";s:6:"report";s:1:"0";s:6:"o_size";s:4:"0.01";s:7:"pw_size";s:4:"0.97";}

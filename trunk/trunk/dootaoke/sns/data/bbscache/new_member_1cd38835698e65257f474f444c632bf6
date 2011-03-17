@@ -1,2 +1,0 @@
-document.write("<li> <a href='http://127.0.0.1:8080/zmd/sns/u.php?uid=2' target='_blank'>hutai</a> <br>");
-document.write("<li> <a href='http://127.0.0.1:8080/zmd/sns/u.php?uid=1' target='_blank'>admin</a> <br>");
