@@ -17,6 +17,22 @@ class TaobaoUser extends Top{
 		return $tmp;
 	}
 	
+	/**
+	 * 获得用户公开信息
+	 */
+	function getOpenUserInfo($nick,$way = "POST"){
+		if(!$nick)	return null;
+		
+		//API用户参数
+		$searchArr = array(
+			'fields' => 'user_id,uid,nick,sex,seller_credit,buyer_credit,location,created,type',
+			'nick' => trim($nick)
+		);
+		$user = $this->getUser($searchArr);
+		
+		return $user;
+	}
+	
 	// 卖家信用
 	function getSellerCredit($user) {
 		$tmp = "";
