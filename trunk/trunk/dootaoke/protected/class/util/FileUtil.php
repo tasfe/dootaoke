@@ -83,5 +83,12 @@ class FileUtil {
 		return self::writeString2File(serialize($cats),FILE_ALL_CATS);
 	}
 
+	/**
+	* 读取远程内容
+	*/
+	static public function openUrlFile($url) {
+	      $result = file_get_contents($url);
+		  return $result;
+	}
 }
 ?>

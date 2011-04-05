@@ -273,6 +273,17 @@ class CacheUtil{
 	}
 	
 	/**
+	* 店铺信息缓存
+	*/
+	static public function getCachedUserInfo($taobao,$nick,$cacheTime = 4320,$file_prefix = "") {
+		if($nick == null || $nick == "") return null;
+		$hashNick = md5($nick);
+		$subDir = substr($hashNick,0,2);
+
+		return self::getCachedData($taobao,'getOpenUserInfo',$hashNick,'user_','/seller/user/'. $subDir . '/',$nick,$cacheTime);
+	}
+	
+	/**
 	 * 产品信息缓存
 	 */
 	static public function getCachedProductById($product,$id,$cacheTime = 4320,$file_prefix="") {
