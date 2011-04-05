@@ -330,7 +330,8 @@ float:left;
 .left_box{border:1px solid #FFCAE4;overflow:hidden;}
 .left_box .head{background:#FFCAE4;}
 .left_box .head{padding:2px 10px;}
-.left_box .info,.left_box .bulletin,.left_box .desc{margin-left:5px;margin-right:5px;overflow:hidden;line-height:20px;}
+.left_box .info,.left_box .bulletin,.left_box .desc{margin:1px 5px;overflow:hidden;line-height:20px;}
+.left_box .info .credit img{max-width:170px;margin:2px 0px;}
 .left_box .all_content{position: absolute;margin-top:-100px;width: 500px;z-index: 1111;overflow:hidden;padding:5px;}
 .left_box .all_content .f{background:#f4efe9 none repeat scroll 0 0;border:1px solid #f7f7f6;display:block;position:relative;}
 .left_box .all_content .i{top:-5px;left:-5px;background:#ffffb9 none repeat scroll 0 0;border:1px solid #e9dfd5;font-weight:normal;padding:10px;position:relative;text-align:left;filter:alpha(opacity = 50);}
@@ -391,3 +392,14 @@ float:left;
 #footer .f_links a{margin:0px 4px;}
 #footer .copyright{clear:both;margin:15px auto 0;}
 /*---footer---*/
+
+/*---list head---*/
+.list_head{}
+.list_head ul{height:31px;margin-top:10px;background-repeat:repeat-x;font-family:Tahoma,Helvetica,Arial,'simsun',sans-serif;border-bottom:1px solid #f60;_overflow:hidden;}
+.list_head ul li{float:left;height:30px;margin-right:5px;line-height:29px;overflow:hidden;border:1px solid #ccc;border-bottom:0 none;filter:alpha(opacity = 100 finishopacity = 100 style = 1 startx = 0,starty = 0,finishx = 0,finishy = 30) progid:DXImageTransform.Microsoft.gradient(startcolorstr = #ffffffff,endcolorstr = #ffededed,gradientType = 0);background:-moz-linear-gradient(center top,#fff,#ededed);background:-webkit-gradient(linear,0 0,0 bottom,from(#fff),to(#ededed));-moz-border-radius:2px 2px 0 0;border-radius:2px 2px 0 0;}
+.list_head ul li a{display:block;padding:0 15px;color:#000;outline:none;}
+.list_head ul li a em{color:#2853b4;font-weight:bold;}
+.list_head ul li.selected{position:relative;height:31px;border-color:#f60;font-weight:bold;background:white;font-size:14px;filter:none;}
+.list_head ul li a:hover{color:#f60;text-decoration:none;}
+.list_head ul li.selected a{color:#f60;}
+/*---list head---*/
