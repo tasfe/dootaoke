@@ -108,33 +108,31 @@ class MainController extends DooController{
 		DooSiteMagic::showAllUrl();	
 	}
 	
-    public function debug(){
-		Doo::loadCore('app/DooSiteMagic');
-		DooSiteMagic::showDebug($this->params['filename']);
-    }
-	
-	public function gen_sitemap_controller(){
-		//This will replace the routes.conf.php file
-		Doo::loadCore('app/DooSiteMagic');
-		DooSiteMagic::buildSitemap(true);		
-		DooSiteMagic::buildSite();
+	/**
+	 * 页面通过ajax调用，访问远程文件
+	 */
+	public function ajax_remote() {
+		// 访问函数列表和显示模板
+		$funcs = array('taobao_comments'=>'taobao_comments');
+		
+		$func = $_GET['func'];
+		if(!in_array($func,$funcs)) return;
+		
+		$remote_url = urldecode($_GET['r_url']);
+		switch($func) {
+			case 'taobao_comments':
+				Doo::loadClass(array('util/FileUtil','util/StringUtil'));
+				$jsonComments = FileUtil::openUrlFile($remote_url);
+				
+				$jsonComments = StringUtil::iconv_gb2312_utf8(trim(substr($jsonComments,stripos($jsonComments,'{'))));
+				
+				$comments = json_decode($jsonComments,true);
+				$data['comments'] = (array)$comments; 
+				$this->view()->renderc('taobao_comments', $data);
+				break;
+			default:break;
+		}
 	}
 	
-	public function gen_sitemap(){
-		//This will write a new file,  routes2.conf.php file
-		Doo::loadCore('app/DooSiteMagic');
-		DooSiteMagic::buildSitemap();		
-	}
-	
-	public function gen_site(){
-		Doo::loadCore('app/DooSiteMagic');
-		DooSiteMagic::buildSite();
-	}
-	
-    public function gen_model(){
-        Doo::loadCore('db/DooModelGen');
-        DooModelGen::gen_mysql();
-    }
-
 }
 ?>

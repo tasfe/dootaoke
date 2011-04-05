@@ -60,8 +60,13 @@ class MallShopController extends MallController{
 		}
 		
 		if($total) {
+			// 店铺信息
 			$taobaoShop = OpenApi::loadApi('TaobaoShop');
 			$data['shop_info'] = CacheUtil::getCachedShopInfo($taobaoShop,$nick);
+			
+			// 店长信息
+			$taobaoUser = OpenApi::loadApi('TaobaoUser');
+			$data['user_info'] = CacheUtil::getCachedUserInfo($taobaoUser,$nick);
 		}
 		
 		// 从缓存读取所有分类文件缓存
