@@ -46,6 +46,9 @@ class MallItemController extends MallController{
 		Doo::loadClass('util/CacheUtil');
 		$taobaoShop = OpenApi::loadApi('TaobaoShop');
 		$data['shop_info'] = CacheUtil::getCachedShopInfo($taobaoShop,$item_detail['nick']);
+		// 店长信息
+		$taobaoUser = OpenApi::loadApi('TaobaoUser');
+		$data['user_info'] = CacheUtil::getCachedUserInfo($taobaoUser,$item_detail['nick']);
 		
 		// 卖家相关商品
     	$searchParams = array('page_no'=>1,'genuine_security' => 'true','page_size'=>40,);

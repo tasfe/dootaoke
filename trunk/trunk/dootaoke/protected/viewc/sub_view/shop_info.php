@@ -1,9 +1,19 @@
-<?php $gid=$goodId?$goodId:null;?>
+<?php $gid=$goodId?$goodId:null;
+$userInfo = $data['user_info'];
+?>
 <div class="left_box">
 <div class="head"><h2>店铺信息</h2></div>
 <div class="info">
 <div><span>店长：<b><?php echo $shopInfo['nick'];?></b></span></div>
+<div class="credit">
+<?php if($userInfo['type']=='B') { ?>
+<img src="<?php echo Doo::conf()->SUBFOLDER; ?>global/img/credit/tmall.png">
+<?php } else { ?>
+信誉：<img src="<?php echo Doo::conf()->SUBFOLDER; ?>global/img/credit/score_<?php echo $userInfo['seller_credit']['level'];?>.gif">
+<?php } ?>
+</div>
 <div>联系：<?php echo display_wangwang($shopInfo['nick'],$gid);?></div>
+<div>所在地：<?php echo state_city($userInfo['location']['state'],$userInfo['location']['city']);?></div>
 <div><span><a class="abtn2" href="<?php echo $to_shop_url;?>"  rel="external nofollow" target="_blank"><span><b>去TA的淘宝店逛逛</b></span></a></span></div>
 <div class="fl">商品描述：<?php echo $shopInfo['shop_score']['item_score'];?></div><div class="fl star<?php echo get_star($shopInfo['shop_score']['item_score'],5);?>"></div><div class="c"></div>
 <div class="fl">服务态度：<?php echo $shopInfo['shop_score']['service_score'];?></div><div class="fl star<?php echo get_star($shopInfo['shop_score']['service_score'],5);?>"></div><div class="c"></div>

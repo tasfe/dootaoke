@@ -69,7 +69,6 @@ $shop_url = url2(true,'MallShopController','shop_detail','p=>'.convert_array_url
 			<li>商家：<?php echo $item_detail['nick'];?>
 			(<a href="<?php echo $shop_url;?>">更多本店商品&gt;&gt;</a>)
 			</li>
-			<li>所在地：<?php echo state_city($item_detail['location']['state'],$item_detail['location']['city']);?></li>
 			<li>发票：<?php echo $invoice;?></li>
 			<li>会员VIP打折：<?php echo $discount;?></li>
 			<li>货到付款：<?php echo $cod;?></li>
@@ -87,8 +86,17 @@ $shop_url = url2(true,'MallShopController','shop_detail','p=>'.convert_array_url
 	<div class="c"></div>
 	</div>
 
+ <div class="list_head">
+ <ul>
+ <li class="selected" name="list_li" target="detail_box"><a href="javascript:void(0);">商品详情</a></li>
+ <li id="list_review" name="list_li" target="review_box"><a href="javascript:void(0);">评价详情</a></li>
+ </ul>
+ </div>
+<div style="display:none;" class="review_box">
+<img src="<?php echo Doo::conf()->SUBFOLDER;?>global/img/loader.gif">
+</div>
+<div class="detail_box">
 <div class="props_box">
-    <h3 class="head_h3">商品详情</h3>
     <div class="props">
         <?php $props=TaobaoUtil::convert_props($item_detail['props_name']);?>
         <ul class="prop_list">
@@ -112,6 +120,7 @@ $shop_url = url2(true,'MallShopController','shop_detail','p=>'.convert_array_url
 		} ?>
     </div>
 </div>
+</div><!--detail_box-->
 <div class="c"></div>
 </div>
 </div><!--page_right-->
@@ -135,6 +144,26 @@ $(function(){
 		var to = $("#to_p").attr("href");
 		window.open(to);
 	});
+	$("li[name=list_li]").bind("click",function(){
+		$("li[name=list_li]").each(function(){
+			$(this).removeClass('selected');
+			$('.' + $(this).attr('target')).css('display','none');
+		});
+		$(this).addClass('selected');
+		$('.' + $(this).attr('target')).css('display','block');
+	});
+	$('#list_review').bind('click',function(){
+		var r_url = <?php echo '"' . 'http://rate.taobao.com/detail_rate.htm?userNumId='.$data['user_info']['user_id'].'&auctionNumId='.$item_detail['num_iid'].'&showContent=1&currentPage=1&ismore=0&siteID=7' .'"';?>;
+		$.get('<?php echo Doo::conf()->SUBFOLDER; ?>ajax/remote',{'r_url':r_url,'func':'taobao_comments'},function(data){
+			if(data) {
+				$('.review_box').html(data);
+			}
+		});
+	});
+	$('#more_reviews').live('click',function(){
+		window.open(<?php echo '"' . $to_url . '"';?>);
+	});
+	
 });
 var top_imgs = <?php echo TaobaoUtil::convertTopImages($top_imgs); ?>;
 </script>
