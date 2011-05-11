@@ -4,6 +4,7 @@
  * Please refer to DooConfig class in the API doc for a complete list of configurations
  * Access via Singleton, eg. Doo::conf()->BASE_PATH;
  */
+ob_start("ob_gzhandler");
 //error_reporting(E_ALL | E_STRICT);
 error_reporting(0);
 date_default_timezone_set('Asia/Shanghai');//PRC Asia/Shanghai Asia/Chongqing
