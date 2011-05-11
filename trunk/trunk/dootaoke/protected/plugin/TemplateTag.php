@@ -352,10 +352,10 @@ function get_star($point, $scoretype) {
  */
 function display_wangwang($nick,$gid=null) {
 	$encodeNick = urlencode($nick);
-	$amos = "http://amos1.taobao.com/msg.ww?v=2&uid=" . $encodeNick ."&s=1&gid=" . $gid;
-	$img = 'http://amos1.taobao.com/online.ww?v=2&uid='. $encodeNick .'&s=1'; 
+	$amos = "http://amos.im.alisoft.com/msg.aw?v=2&uid=" . $encodeNick ."&site=cntaobao&s=2&charset=utf-8&s=1&gid=" . $gid;
+	$img = 'http://amos.im.alisoft.com/online.aw?v=2&uid='. $encodeNick .'&site=cntaobao&s=1&charset=utf-8&s=1'; 
 	
-	$wwang = '<a href="'. $amos .'" id="amos" target="_blank"><img src="'.$img.'" title="直接联系卖家" /></a>';
+	$wwang = '<a href="'. $amos .'" id="amos" target="_blank"><img src="'.$img.'" title="点击这里给我发消息" /></a>';
 	
 	return $wwang;
 }
@@ -364,10 +364,12 @@ function display_wangwang($nick,$gid=null) {
  * 省份城市
  */
 function state_city($state,$city) {
-	if($state == $city) {
+	if(is_array($state) || is_array($city)) {
+		return '';
+	}elseif($state == $city) {
 		return $state;
 	} else {
-		return $state . $city;
+		return $state . ' '. $city;
 	}
 }
 
