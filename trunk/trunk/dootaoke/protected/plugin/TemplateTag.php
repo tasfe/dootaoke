@@ -444,4 +444,132 @@ function display_slider_ad($slider_ads,$id,$c_container="container",$c_slides="s
 	$ad .= "</ul></div></div>";
 	return $ad;
 }
+
+/**
+ * 
+ * 检查缓存时间
+ * @param unknown_type $cachetime
+ * @param unknown_type $cachePath
+ * @param unknown_type $clearPattern
+ */
+function checkClearTime($cachetime,$cachePath,$clearPattern = '* * * *')
+	{
+		$CacheParam = explode(" ",$clearPattern);
+
+		if(!$clearPattern || count($CacheParam) !== 4)
+		{
+			return false;
+		}
+
+		if($CacheParam[3] != "*")
+		{
+			$CacheParam[3] = explode(",",$CacheParam[3]);
+
+			if(!in_array(date('m'),$CacheParam[3]))
+			{
+				return false;
+			}
+		}
+
+		if($CacheParam[2] != "*")
+		{
+			$CacheParam[2] = explode(",",$CacheParam[2]);
+
+			if(!in_array(date('d'),$CacheParam[2]))
+			{
+				return false;
+			}
+		}
+		if($CacheParam[1] != "*")
+		{
+			$CacheParam[1] = explode(",",$CacheParam[1]);
+
+			if(!in_array(date('H'),$CacheParam[1]))
+			{
+				return false;
+			}
+		}
+
+		if($CacheParam[0] != "*")
+		{
+			$CacheParam[0] = explode(",",$CacheParam[0]);
+
+			if(!in_array(date('i'),$CacheParam[0]))
+			{
+				return false;
+			}
+		}
+
+		$cachetag = $cachePath."autoclear.tag";
+
+         if (file_exists($cachetag)) {
+                $filetime = date('U', filemtime($cachetag));
+
+                // 每天更新
+			/*	if(date("d") == date("d",$filetime))
+				{
+					return false;
+				 }*/
+				 
+				 // 根据缓存时间
+				 if ($cachetime == 0 || (time() - $filetime) < $cachetime) {
+				     return false;
+				 }
+		}
+		file_put_contents($cachetag,date("Y-m-d H:i:s"));
+
+		return true;
+	}
+	
+/**
+ * 
+ * 清理缓存
+ * @param unknown_type $path
+ * @param unknown_type $cachetime
+ * @param unknown_type $notclearPath
+ */
+ function autoClearCache($path,$cachetime,$notclearPath=array())
+	{
+		if(empty($path))
+		{
+			return false;
+		}
+
+		if($cachetime)
+		{
+			if(!is_dir($path))
+			{
+				return false;
+			}
+			
+			if($fdir = opendir($path))
+			{
+				$old_cwd = getcwd();
+				chdir($path);
+				$path = getcwd().'/';
+				while(($file = readdir($fdir)) !== false)
+				{
+					if(in_array($file,array('.','..')))
+					{
+						continue;
+					}
+
+					if(is_dir($path.$file))
+					{
+						if(!in_array($file,$notclearPath)) {
+							autoClearCache($path.'/'.$file.'/',$cachetime,$notclearPath); 
+						}
+					}else{
+						$filetime = date('U', filemtime($path.$file));
+						if ($cachetime != 0 && (time() - $filetime) > $cachetime) {
+								@unlink($path.$file);
+						}
+					}
+				}				
+				closedir($fdir);
+				chdir($old_cwd);
+			}
+		}
+
+	}
 ?>

@@ -17,6 +17,20 @@ $time_end = explode(' ', microtime());
 $parse_time = number_format(($time_end[1] + $time_end[0] - ($time_start[1] + $time_start[0])), 3);
 ?>
 <div style="display:none;"><?php echo $parse_time;?></div>
+
+<?php
+// is robot
+$is_robot = is_robot();
+
+$autoClearCache=false;
+if(!$is_robot && checkClearTime(AUTOCLEAR_CACHETIME,FILE_CACHE_PATH)) {
+	$autoClearCache=true;//autoClearCache(CACHE_PATH,AUTOCLEAR_CACHETIME,array('catpath','cat'));
+}
+if($autoClearCache) {
+//定期获得淘宝，联盟报告
+?>
+<script type="text/javascript" src="<?php echo Doo::conf()->SUBFOLDER; ?>cache/clear"></script>
+<?php }?>
 </div><!--#page-->
 <script type="text/javascript">
 
