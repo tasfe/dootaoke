@@ -22,6 +22,7 @@ define('SPECIAL_CHARS_2','/(<|>|[|])/');
 
 // 编码
 define('CHARSET','utf-8');
+
 // 全局参数
 $_G = array();
 $_G['taobao'] = array(
@@ -37,6 +38,7 @@ $_G['taobao'] = array(
 
 
 /*---------常量定义 ---------------------*/
-
-
+//缓存清理时间
+define('AUTOCLEAR_CACHETIME',6*60*60);//自动清除缓存时间
+define('AUTOCLEAR_NOTCLEAR_PATHS','cat,cat_prop');//自动清除缓存时间
 ?>

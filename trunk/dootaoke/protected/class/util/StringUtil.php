@@ -55,7 +55,6 @@ class StringUtil {
 	static public function removeSuperlink($input){
 	  //$tmp = preg_replace("/(<\/a>)|(<a\s*href[^>]*>)/i",   "",   $input);
 	  $tmp = preg_replace("/(<\/a>)|(<a\s*[^>]*>)/i",   "",   $input);
-	  
 	  return $tmp;
 	}
 
@@ -132,8 +131,8 @@ class StringUtil {
 	 */
 	static public function convert_urlparams_array($urlparams,$keys=null,$split="-",$containKey=true){
 		if(!$urlparams) return '';
+		$urlparams = urldecode($urlparams);
 		$params = split($split,$urlparams);
-		
 		$result = array();
 		if($keys && sizeof($params) == sizeof($keys) && !$containKey) {
 			sort($keys);

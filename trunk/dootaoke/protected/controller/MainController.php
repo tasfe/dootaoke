@@ -6,6 +6,61 @@
  * @author darkredz
  */
 class MainController extends DooController{
+    /**
+     * 清除淘宝数据缓存
+     */
+    public function clear_cache(){
+        $path=FILE_CACHE_PATH;
+        $cachetime=AUTOCLEAR_CACHETIME;
+        $not=explode(',', AUTOCLEAR_NOTCLEAR_PATHS);
+        $this->autoClearCache($path,$cachetime,$not);
+    }
+    
+    /**
+     * 
+     * 清理缓存
+     * 
+     */
+     protected function autoClearCache($path,$cachetime,$notclearPath=array()) {
+    		if(empty($path)) {
+    			return false;
+    		}
+    
+    		if($cachetime) {
+    			if(!is_dir($path)) {
+    				return false;
+    			}
+    			
+    			if($fdir = opendir($path)){
+    				$old_cwd = getcwd();
+    				chdir($path);
+    				$path = getcwd().'/';
+    				while(($file = readdir($fdir)) !== false)
+    				{
+    					if(in_array($file,array('.','..')))
+    					{
+    						continue;
+    					}
+    
+    					if(is_dir($path.$file))
+    					{
+    						if(!in_array($file,$notclearPath)) {
+    							$this->autoClearCache($path.'/'.$file.'/',$cachetime,$notclearPath); 
+    						}
+    					}else{
+    						$filetime = date('U', filemtime($path.$file));
+    						if ($cachetime != 0 && (time() - $filetime) > $cachetime) {
+    								@unlink($path.$file);
+    						}
+    					}
+    				}				
+    				closedir($fdir);
+    				chdir($old_cwd);
+    			}
+    		}
+    
+    	}
+        
 	/**
 	 * 重定向到
 	 */

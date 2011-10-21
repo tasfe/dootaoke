@@ -19,10 +19,11 @@
  * $route['*']['/'] = array('HomeController', 'index', 'id'=>'home');
  */
 $admin = array('admin'=>'1234');
- 
+
 $route['*']['/'] = array('MallController', 'index');
 $route['*']['/to/:type/:id'] = array('MainController', 'redirect_to');
 $route['*']['/ajax/remote'] = array('MainController', 'ajax_remote');
+$route['*']['/cache/clear'] = array('MainController', 'clear_cache');
 
 // 商品列表
 $route['*']['/list/:p'] = array('MallItemController', 'list_items');

@@ -112,13 +112,13 @@ class CacheUtil{
 		
 		$result = null;
 		if($CacheFile) {
-			$result = unserialize(gzuncompress($Cache->readCacheFile2String()));
+			$result = unserialize(($Cache->readCacheFile2String()));
 		}else {
 			$result = $taobaoke->getItemsByCatId($searchParams);
 			if($result == null || sizeof($result) < 1) {
-				return unserialize(gzuncompress($Cache->readCacheFile2String()));
+				return unserialize(($Cache->readCacheFile2String()));
 			}
-			$Cache->SaveToCacheFile(gzcompress(serialize($result)));
+			$Cache->SaveToCacheFile((serialize($result)));
 		}
 		
 		return $result;
@@ -202,7 +202,7 @@ class CacheUtil{
 	* $cachetime 缓存时间（分）
 	* $suffix 文件后缀
 	*/
-	static public function getCachedData($obj,$func,$name,$prefix,$subdir='',$params=null,$cachetime=2880,$compressed=true,$serialize=true,$suffix='txt'){
+	static public function getCachedData($obj,$func,$name,$prefix,$subdir='',$params=null,$cachetime=2880,$compressed=false,$serialize=true,$suffix='txt'){
 		$Cache = new CacheFile($name,$prefix,$suffix);
 		$Cache->SetCacheTime($cachetime);
 		$Cache->SetCacheFileCommpress($compressed);
@@ -233,7 +233,7 @@ class CacheUtil{
 	/**
 	* 淘宝分类属性
 	*/
-	static public function getCachedCatProps($cat,$params,$propname,$cachetime=14400,$compressed=true){
+	static public function getCachedCatProps($cat,$params,$propname,$cachetime=14400,$compressed=false){
 		return self::getCachedData($cat,'getItemProps',$propname,$propname.$params['cid'].'_','/cat_prop/'.$propname.'/',$params,$cachetime,$compressed);
 	}
 

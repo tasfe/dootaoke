@@ -2,14 +2,45 @@
 // 常用数据
 define('API_URL', 'http://gw.api.taobao.com/router/rest');
 
-define('APP_KEY', '');
-define('APP_SECRET', '');
-define('NICK', '');	
+//define('APP_KEY', '');
+//define('APP_SECRET', '');
+//define('NICK', '');
 
+$apps = array(
+array('APP_KEY'=>'12259852','APP_SECRET'=>'9b395a23d02d908ad1f4fb0e9d987945','APP_NUM'=>'500'),
+array('APP_KEY'=>'12177984','APP_SECRET'=>'daa0bc98169de3d75eab1b0bd0a33861','APP_NUM'=>'500'),
+array('APP_KEY'=>'12009868','APP_SECRET'=>'268aee99b240dd97a2decee14c72076b','APP_NUM'=>'500'),
+array('APP_KEY'=>'12009226','APP_SECRET'=>'6eb1ebd74805155a8dddf1a43effe321','APP_NUM'=>'500'),
+);
+
+/**
+ * 
+ * 根据频率随机取APP_key
+ */
+function get_rand_app($apps){
+    foreach ($apps as $val) {
+    	$num = $val['APP_NUM'];
+        $x = $num/100;
+        for ($i=0;$i<$x;$i++){
+            $applist[] = $val['APP_KEY'];
+        }
+    }
+    $app_key=$applist[array_rand($applist)];
+    foreach($apps as $val){
+    	if($app_key==$val['APP_KEY']){
+    		return $val;
+    	}
+    }
+}
+
+$app=get_rand_app($apps);
+define('APP_KEY', $app['APP_KEY']);
+define('APP_SECRET', $app['APP_SECRET']);
+define('NICK', 'hutai123');
 
 // 淘宝商品详情URL
 define('ITEM_TAOBAO_URL', "http://item.taobao.com/item.htm?id=");
-define('ITEM_TAOBAO_SHOP_URL', "http://shop%s.taobao.com/");//sprintf(ITEM_TAOBAO_SHOP_URL,id)
+define('ITEM_TAOBAO_SHOP_URL', "http://shop%s.taobao.com/");
 
 // 淘宝客
 define('TAOBAOKE_ITEMS_GET', 'taobao.taobaoke.items.get');
