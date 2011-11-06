@@ -28,7 +28,7 @@ function initTaobaokeTop() {
 	'app_secret'=>APP_SECRET,
 	'format' => 'xml',
 	'v' => '2.0',
-	'outer_code'=>'zmd',
+	'outer_code'=>TAO_OUTER_CODE,
 	'timestamp' => date('Y-m-d H:i:s')
 	);
 	
