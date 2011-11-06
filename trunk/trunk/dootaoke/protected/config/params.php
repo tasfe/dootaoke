@@ -39,6 +39,6 @@ $_G['taobao'] = array(
 
 /*---------常量定义 ---------------------*/
 //缓存清理时间
-define('AUTOCLEAR_CACHETIME',6*60*60);//自动清除缓存时间
+define('AUTOCLEAR_CACHETIME',12*60*60);//自动清除缓存时间
 define('AUTOCLEAR_NOTCLEAR_PATHS','cat,cat_prop');//自动清除缓存时间
 ?>
