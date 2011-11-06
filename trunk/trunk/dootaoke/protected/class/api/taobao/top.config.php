@@ -37,6 +37,7 @@ $app=get_rand_app($apps);
 define('APP_KEY', $app['APP_KEY']);
 define('APP_SECRET', $app['APP_SECRET']);
 define('NICK', 'hutai123');
+define('TAO_OUTER_CODE', 'zmd');
 
 // 淘宝商品详情URL
 define('ITEM_TAOBAO_URL', "http://item.taobao.com/item.htm?id=");
