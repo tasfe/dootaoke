@@ -11,7 +11,7 @@ class Util {
 		if (self::$snoopy == NULL) {
 			self::$snoopy = new Snoopy();
 		}
-		self::$snoopy->rawheaders["Accept-Encoding"] = "gzip, deflate";
+		//self::$snoopy->rawheaders["Accept-Encoding"] = "gzip, deflate";
 	}
 	
 	/**
