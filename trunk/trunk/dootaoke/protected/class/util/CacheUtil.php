@@ -128,7 +128,7 @@ class CacheUtil{
 	/**
 	* list page data cached
 	*/
-	static public function getCachedSellerItems($taobao,$nick,$params,$cacheTime = 1440,$file_prefix = "",$compressed=true,$serialize=true) {
+	static public function getCachedSellerItems($taobao,$nick,$params,$cacheTime = 1440,$file_prefix = "",$compressed=false,$serialize=true) {
 		if($nick == null || $nick == "") return null;
 		if($params['page_no']>1 || $params['cid'] || $params['q']) {
 			$result = $taobao->getSellerItems($nick,$params);
@@ -163,7 +163,7 @@ class CacheUtil{
 	/**
 	* list page data cached
 	*/
-	static public function getCachedProduct($iid,$taobaoke,$file_prefix = "",$cacheTime = 2880,$compressed=true,$serialize=true) {
+	static public function getCachedProduct($iid,$taobaoke,$file_prefix = "",$cacheTime = 2880,$compressed=false,$serialize=true) {
 		if($iid == null || $iid == "") return null;
 		$subDir = substr($iid,0,2);
 		$subDir2 = substr($iid,2,2);
